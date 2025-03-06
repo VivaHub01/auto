@@ -2,7 +2,6 @@ from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from src.db.database import Base
 
-
 class Location(Base):
     __tablename__ = 'locations'
 
@@ -13,4 +12,4 @@ class Location(Base):
     platform_name: Mapped[str] = mapped_column(ForeignKey("platforms.name", ondelete="CASCADE"), nullable=False)
     
     platform: Mapped["Platform"] = relationship("Platform", back_populates="locations")
-
+    assets = relationship("Asset", back_populates="location", cascade="all, delete-orphan")

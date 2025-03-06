@@ -1,7 +1,6 @@
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from src.db.database import Base
 
-
 class Organization(Base):
     __tablename__ = 'organizations'
 

@@ -2,7 +2,6 @@ from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from src.db.database import Base
 
-
 class Classification(Base):
     __tablename__ = 'classifications'
 

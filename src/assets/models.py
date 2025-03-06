@@ -12,3 +12,4 @@ class Asset(Base):
     location_name: Mapped[str] = mapped_column(ForeignKey("locations.name", ondelete="CASCADE"), nullable=False)
     
     location: Mapped["Location"] = relationship("Location", back_populates="assets")
+    classifications = relationship("Classification", back_populates="asset", cascade="all, delete-orphan")
