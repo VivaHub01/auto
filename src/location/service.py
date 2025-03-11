@@ -11,8 +11,12 @@ async def create_location(location: LocationOut, db: AsyncSession):
     db_platform = await db.execute(select(Platform).filter(Platform.name == location.platform_name))
     db_platform = db_platform.scalar_one_or_none()
     if db_platform is None:
-        raise HTTPException(status_code=404, detail="Platform not found")
-    db_location = Location(name=location.name, description=location.description, platform_id=db_platform.id)
+        raise HTTPException(status_code=404, detail="Platform not found") 
+    db_location = Location(
+        name=location.name,
+        description=location.description,
+        platform_name=db_platform.name
+    )
     db.add(db_location)
     await db.commit()
     await db.refresh(db_location)
