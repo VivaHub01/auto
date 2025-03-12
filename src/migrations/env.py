@@ -17,6 +17,7 @@ from src.platform.models import Platform
 from src.location.models import Location
 from src.assets.models import Asset
 from src.classification.models import Classification
+from src.specialization.models import Specialization, ClassificationLevel
 
 from src.db.database import Base
 
